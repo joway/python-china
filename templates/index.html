@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Flat UI Free 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="dist/css/flat-ui.min.css" rel="stylesheet">
+    <link href="css/topic.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/page.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="dist/js/html5shiv.min.js"></script>
+    <script src="dist/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-6">
+            <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="#"> Bloger </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-6">
+        <ul class="nav navbar-nav">
+            <li><a href="#">Timeline<span class="navbar-unread">1</span></a></li>
+            <li class="active"><a href="#"> Wiki </a></li>
+            <li><a href="#">Links</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Joway <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">我的主页</a></li>
+                    <li><a href="#">资料</a></li>
+                    <li><a href="#">记事本</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">退出</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <form class="navbar-form navbar-right" action="#" role="search">
+            <div class="form-group">
+                <div class="input-group">
+                    <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn"><span class="fui-search"></span></button>
+                </span>
+                </div>
+            </div>
+        </form>
+
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+
+<div id="main" class="container">
+
+    <div class="row">
+
+        <div class="col-sm-9">
+            <div class="filter-head panel panel-default">
+                <div class="panel-heading clearfix">
+                    <div class="filter pull-right">
+                        <span>查看:</span>
+                        <a href="/topics" class="active">默认</a>
+                        <a href="/topics/popular" class="popular"><i class="fa fa-diamond"></i> 优质帖子</a>
+                        <a href="/topics/no_reply">无人问津</a>
+                        <a href="/topics/last">最新创建</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topics panel-body">
+                <div class="topic media">
+                    <div class="media-left media-middle">
+                        <a href="#">
+                            <img class="media-object avatar-48" src="img/logo.jpeg">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="index.html"><h4 class="media-heading topic-title">帖子标题很长很长很长很长很长很长很长很长很长很长</h4></a>
+                        <div class="topic-bottom">
+                            <a class="topic-node" href="#">节点</a>•
+                            <a data-name="Joway" href="/">Joway</a>
+                            <span class="hidden-mobile">•
+                                最后由 <a data-name="wzw" href="/wzw">wzw</a> 于
+                                <abbr class="timeago" title="2016-06-30T15:02:49+08:00">6 小时前</abbr>回复
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="pagination topic-pagination">
+                    <li class="previous">
+                        <a href="#" class="fui-arrow-left"></a>
+                    </li>
+
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+
+                    <!-- Make dropdown appear above pagination -->
+                    <li class="pagination-dropdown dropup">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fui-triangle-up"></i>
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">10-20</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="next">
+                        <a href="#" class="fui-arrow-right"></a>
+                    </li>
+                </ul>
+
+
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="panel panel-default clearfix">
+                <div class="panel-body">
+                    <div class="btn-group btn-block pull-left">
+                        <a class="btn btn-primary" href="/topics/new">发布新话题</a>
+                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/topics/new?node=44">部署</a>
+                            </li>
+                            <li>
+                                <a href="/topics/new?node=52">新手问题</a>
+                            </li>
+                            <li>
+                                <a href="/topics/new?node=24">工具控</a>
+                            </li>
+                            <li>
+                                <a href="/topics/new?node=3">Gem</a>
+                            </li>
+                            <li>
+                                <a href="/topics/new?node=27">瞎扯淡</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">公告</div>
+                <div class="panel-body">
+                    Just for fun
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">推荐</div>
+                <ul class="list-group">
+                    <li class="list-group-item"><i class='fa fa-cloud'></i>
+                        <a href="/wiki/ruby-mirror">Joway's Blog</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">友情链接</div>
+                <ul class="list-group" style="text-align:center">
+                    <li class="list-group-item"><a href="http://cnodejs.org" rel="nofollow" title="CNode 社区"
+                                                   target="_blank"><img
+                            src="//ruby-china-files.b0.upaiyun.com/assets/cnodejs.png"
+                            style="width:120px;margin: 4px 0;"/></a></li>
+                </ul>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">统计信息</div>
+                <ul class="list-group">
+                    <li class="list-group-item">社区会员: 1 人</li>
+                    <li class="list-group-item">帖子数: 100 个</li>
+                    <li class="list-group-item">回帖数: 200 条</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div> <!-- /container -->
+
+
+<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+<script src="dist/js/jquery.min.js"></script>
+<script src="dist/js/bootstrap.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="dist/js/video.min.js"></script>
+<script src="dist/js/flat-ui.min.js"></script>
+
+</body>
+</html>

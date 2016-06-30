@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Flat UI Free 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="dist/css/flat-ui.min.css" rel="stylesheet">
+
+    <link href="css/page.css" rel="stylesheet">
+    <link href="css/topic.css" rel="stylesheet">
+
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="dist/js/html5shiv.min.js"></script>
+    <script src="dist/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-6">
+            <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="#"> Bloger </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-6">
+        <ul class="nav navbar-nav">
+            <li><a href="#">Timeline<span class="navbar-unread">1</span></a></li>
+            <li class="active"><a href="#"> Wiki </a></li>
+            <li><a href="#">Links</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Joway <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">我的主页</a></li>
+                    <li><a href="#">资料</a></li>
+                    <li><a href="#">记事本</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">退出</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <form class="navbar-form navbar-right" action="#" role="search">
+            <div class="form-group">
+                <div class="input-group">
+                    <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn"><span class="fui-search"></span></button>
+                </span>
+                </div>
+            </div>
+        </form>
+
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+
+<div id="main" class="container">
+    <div class="row">
+        <div class="col-md-9">
+
+            <div class="topic-detail panel panel-default">
+                <div class="panel-heading media clearfix">
+                    <div class="media-body">
+                        <h1 class="media-heading">我是标题很长很长很长长很长很长很长很长很长</h1>
+                        <div class="topic-bottom">
+                            <a class="topic-node" href="#">节点</a>
+                            ·
+                            <a data-author="true" data-name="Joway" href="/joway">Joway</a>
+                            ·
+                            于 <abbr class="timeago" title="2016-06-29T02:37:18+08:00"></abbr>发布
+                            ·
+                            最后由 <a data-name="wzw" href="/wzw">wzw</a> 于 <abbr class="timeago"
+                                                                               title="2016-06-30T15:02:49+08:00"></abbr>回复
+                            ·
+                            805 次阅读
+                        </div>
+                    </div>
+                    <div class="avatar media-right">
+                        <a href="/joway"><img class="media-object avatar-48"
+                                              src="img/logo.jpeg"
+                                              alt="1107"/></a>
+                    </div>
+                </div>
+
+
+                <div class="panel-body markdown">
+
+
+                    <article>
+                        <p>
+                            <img src="https://ruby-china-files.b0.upaiyun.com/photo/2016/9a5fdcc7dfa7eeefb7e42a29fcaf1a75.jpg"
+                                 title="" alt="">
+                            <img src="https://ruby-china-files.b0.upaiyun.com/photo/2016/9a5fdcc7dfa7eeefb7e42a29fcaf1a75.jpg"
+                                 title="" alt="">
+                        </p>
+
+                        <p>现代的辅助技术能够识别并朗读由 CSS 生成的内容和特定的 Unicode 字符。为了避免
+                            屏幕识读设备抓取非故意的和可能产生混淆的输出内容（尤其是当图标纯粹作为装饰用途时），我们为这些图标设置了 aria-hidden="true" 属性。
+                        </p>
+                        <p>如果你使用图标是为了表达某些含义（不仅仅是为了装饰用），请确保你所要表达的意思能够通过被辅助设备识别，例如，包含额外的内容并通过 .sr-only
+                            类让其在视觉上表现出隐藏的效果。</p>
+                    </article>
+                </div>
+
+
+                <div class="panel-footer clearfix">
+                    <div class="opts">
+                        <a title="赞" data-count="10" data-state="" data-type="Topic" data-id="30397" class="likeable "
+                           href="#"><i class="fa fa-heart-o"></i> <span>10 个赞</span></a>
+                        <a data-id="30397" class="follow" href="#"><i class="fa fa-eye"></i> 关注</a>
+                        <a title="收藏" class="bookmark " data-id="30397" href="#"><i class="fa fa-bookmark"></i> 收藏</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container -->
+
+
+<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+<script src="dist/js/jquery.min.js"></script>
+
+<script src="dist/js/bootstrap.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="dist/js/video.min.js"></script>
+<script src="dist/js/flat-ui.min.js"></script>
+</body>
+</html>
