@@ -14,13 +14,13 @@ WORKDIR /code
 
 # for cache
 # Configure Nginx and uwsgi
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 ADD ./requirements.txt /code/requirements.txt
 RUN rm /etc/nginx/sites-enabled/default
 ADD ./.deploy/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 ADD ./.deploy/supervisord.conf /etc/supervisor/conf.d/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 ADD . /code
 
