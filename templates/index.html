@@ -5,67 +5,16 @@
     <title>Flat UI Free 101 Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Loading Bootstrap -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    {% load staticfiles %}
 
-    <!-- Loading Flat UI -->
-    <link href="dist/css/flat-ui.min.css" rel="stylesheet">
-    <link href="css/topic.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/page.css" rel="stylesheet">
+    {% include "header.html" %}
 
-    <link rel="shortcut icon" href="img/favicon.ico">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-    <script src="dist/js/html5shiv.min.js"></script>
-    <script src="dist/js/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 
-<nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-6">
-            <span class="sr-only">Toggle navigation</span>
-        </button>
-        <a class="navbar-brand" href="#"> Bloger </a>
-    </div>
+{% include "nav.html" %}
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbar-collapse-6">
-        <ul class="nav navbar-nav">
-            <li><a href="#">Timeline<span class="navbar-unread">1</span></a></li>
-            <li class="active"><a href="#"> Wiki </a></li>
-            <li><a href="#">Links</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Joway <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">我的主页</a></li>
-                    <li><a href="#">资料</a></li>
-                    <li><a href="#">记事本</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">退出</a></li>
-                </ul>
-            </li>
-        </ul>
-
-        <form class="navbar-form navbar-right" action="#" role="search">
-            <div class="form-group">
-                <div class="input-group">
-                    <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
-                <span class="input-group-btn">
-                  <button type="submit" class="btn"><span class="fui-search"></span></button>
-                </span>
-                </div>
-            </div>
-        </form>
-
-    </div><!-- /.navbar-collapse -->
-</nav>
 
 
 <div id="main" class="container">
@@ -89,11 +38,11 @@
                 <div class="topic media">
                     <div class="media-left media-middle">
                         <a href="#">
-                            <img class="media-object avatar-48" src="img/logo.jpeg">
+                            <img class="media-object avatar-48" src="{% static '' %}img/logo.jpeg">
                         </a>
                     </div>
                     <div class="media-body">
-                        <a href="index.html"><h4 class="media-heading topic-title">帖子标题很长很长很长很长很长很长很长很长很长很长</h4></a>
+                        <a href="/topic"><h4 class="media-heading topic-title">帖子标题很长很长很长很长很长很长很长很长很长很长</h4></a>
                         <div class="topic-bottom">
                             <a class="topic-node" href="#">节点</a>•
                             <a data-name="Joway" href="/">Joway</a>
@@ -209,13 +158,8 @@
 
 </div> <!-- /container -->
 
+{% include "footer.html" %}
 
-<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
-<script src="dist/js/jquery.min.js"></script>
-<script src="dist/js/bootstrap.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="dist/js/video.min.js"></script>
-<script src="dist/js/flat-ui.min.js"></script>
 
 </body>
 </html>

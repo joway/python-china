@@ -1,0 +1,38 @@
+
+.topics {
+    background-color: white;
+}
+
+.topics .topic {
+    padding: 10px 15px;
+    margin: 0 -15px;
+    border-bottom: 1px solid #8fffff;
+}
+
+.topic .topic-title {
+    font-size: 16px;
+    color: inherit;
+}
+
+.topic-bottom {
+    font-size: 10px;
+}
+
+.topic .topic-node {
+}
+
+.topics .topic-pagination {
+    margin: 5px;
+    background-color: whitesmoke;
+}
+
+.topics .topic-pagination li a {
+    color: black;
+}
+
+.topic-detail{
+
+}
+.topic-detail h1{
+    font-size: 24px;
+}

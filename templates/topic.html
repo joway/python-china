@@ -5,69 +5,14 @@
     <title>Flat UI Free 101 Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Loading Bootstrap -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Loading Flat UI -->
-    <link href="dist/css/flat-ui.min.css" rel="stylesheet">
+    {% load staticfiles %}
 
-    <link href="css/page.css" rel="stylesheet">
-    <link href="css/topic.css" rel="stylesheet">
-
-
-    <link rel="shortcut icon" href="img/favicon.ico">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-    <script src="dist/js/html5shiv.min.js"></script>
-    <script src="dist/js/respond.min.js"></script>
-    <![endif]-->
+    {% include "header.html" %}
 </head>
 <body>
 
-
-<nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-6">
-            <span class="sr-only">Toggle navigation</span>
-        </button>
-        <a class="navbar-brand" href="#"> Bloger </a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbar-collapse-6">
-        <ul class="nav navbar-nav">
-            <li><a href="#">Timeline<span class="navbar-unread">1</span></a></li>
-            <li class="active"><a href="#"> Wiki </a></li>
-            <li><a href="#">Links</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Joway <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">我的主页</a></li>
-                    <li><a href="#">资料</a></li>
-                    <li><a href="#">记事本</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">退出</a></li>
-                </ul>
-            </li>
-        </ul>
-
-        <form class="navbar-form navbar-right" action="#" role="search">
-            <div class="form-group">
-                <div class="input-group">
-                    <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
-                <span class="input-group-btn">
-                  <button type="submit" class="btn"><span class="fui-search"></span></button>
-                </span>
-                </div>
-            </div>
-        </form>
-
-    </div><!-- /.navbar-collapse -->
-</nav>
+{% include "nav.html" %}
 
 
 <div id="main" class="container">
@@ -93,7 +38,7 @@
                     </div>
                     <div class="avatar media-right">
                         <a href="/joway"><img class="media-object avatar-48"
-                                              src="img/logo.jpeg"
+                                              src="{% static '' %}img/logo.jpeg"
                                               alt="1107"/></a>
                     </div>
                 </div>
@@ -104,8 +49,6 @@
 
                     <article>
                         <p>
-                            <img src="https://ruby-china-files.b0.upaiyun.com/photo/2016/9a5fdcc7dfa7eeefb7e42a29fcaf1a75.jpg"
-                                 title="" alt="">
                             <img src="https://ruby-china-files.b0.upaiyun.com/photo/2016/9a5fdcc7dfa7eeefb7e42a29fcaf1a75.jpg"
                                  title="" alt="">
                         </p>
