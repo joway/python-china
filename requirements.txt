@@ -17,3 +17,4 @@ shortuuid==0.4.3
 six==1.10.0
 sqlparse==0.1.19
 uWSGI==2.0.13.1
+django-qiniu-storage==2.3.0

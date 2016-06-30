@@ -76,7 +76,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': (BASE_DIR + '/templates/', ),
+        'DIRS': (BASE_DIR + '/templates/',),
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,8 +132,8 @@ USE_TZ = True
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
-STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, "cdn")
+STATIC_URL = 'dn-stk.qbox.me/'
+STATIC_ROOT = os.path.join(BASE_DIR, "cdn")
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -201,5 +201,11 @@ SOCIAL_AUTH_CODING_SECRET = os.environ.get('SOCIAL_AUTH_CODING_SECRET')
 DEFAULT_AVATAR = 'https://dn-joway.qbox.me/1465087838481_user_116px_1196112_easyicon.net.png'
 
 # access
+MEDIA_ROOT = '/upload/'
 QINIU_ACCESS_KEY = os.environ.get('QINIU_ACCESS_KEY', 'xxx')
 QINIU_SECRET_KEY = os.environ.get('QINIU_SECRET_KEY', 'xxx')
+QINIU_BUCKET_NAME = 'static'
+QINIU_BUCKET_DOMAIN = 'dn-stk.qbox.me'
+DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuMediaStorage'
+STATICFILES_STORAGE = 'qiniustorage.backends.QiniuStorage'
+QINIU_SECURE_URL = True
