@@ -3,25 +3,20 @@ from django.db import models
 
 
 class UserManager(BaseUserManager):
-    def _create_user(self, username, email, password, is_superuser=False, **extra_fields):
+    def _create_user(self, username, email, is_superuser=False, **extra_fields):
         """
         Creates and saves a User with the given email and password.
         """
         email = self.normalize_email(email)
         user = self.model(username=username, email=email, is_superuser=is_superuser, **extra_fields)
-        user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_user(self, username, email, password, **extra_fields):
-        return self._create_user(username=username, email=email, password=password, **extra_fields)
+    def create_user(self, username, email, **extra_fields):
+        return self._create_user(username=username, email=email, **extra_fields)
 
-    def create_activate_user(self, username, email, password, **extra_fields):
-        return self._create_user(username=username, email=email,
-                                 password=password, **extra_fields)
-
-    def create_superuser(self, username, email, password, **extra_fields):
-        return self._create_user(username=username, email=email, password=password
+    def create_superuser(self, username, email, **extra_fields):
+        return self._create_user(username=username, email=email
                                  , is_superuser=True, is_staff=True, **extra_fields)
 
     def create_staff(self, username, email, password, **extra_fields):

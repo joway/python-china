@@ -49,10 +49,10 @@ class AuthService(object):
     def get_user_info(cls, access_token):
         _data = {'access_token': access_token}
         try:
-            info = requests.get(url=cls.USER_URL,
-                                params=_data,
-                                headers=cls.HEADER
-                                ).json()
+            info = requests.post(url=cls.USER_URL,
+                                 data=_data,
+                                 headers=cls.HEADER
+                                 ).json()
             return info
         except:
             raise AuthProcessError
