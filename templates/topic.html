@@ -58,6 +58,19 @@
                         </p>
                         <p>如果你使用图标是为了表达某些含义（不仅仅是为了装饰用），请确保你所要表达的意思能够通过被辅助设备识别，例如，包含额外的内容并通过 .sr-only
                             类让其在视觉上表现出隐藏的效果。</p>
+
+
+                        <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+                               poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+                            <source src="MY_VIDEO.mp4" type='video/mp4'>
+                            <p class="vjs-no-js">
+                                To view this video please enable JavaScript, and consider upgrading to a web browser
+                                that
+                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5
+                                    video</a>
+                            </p>
+                        </video>
+
                     </article>
                 </div>
 
@@ -79,6 +92,7 @@
 
 
 {% include "footer.html" %}
+
 
 </body>
 </html>

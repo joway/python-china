@@ -46,9 +46,6 @@ INSTALLED_APPS = (
 
     # local apps
     'users',
-    'social',
-    'oauth',
-    'upload',
 
     # third part apps
     'rest_framework',
@@ -93,7 +90,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-if DEBUG or TESTING:
+if DEBUG or DEBUG == 'True' or TESTING:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -165,42 +162,11 @@ JWT_AUTH = {
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
 }
 
-DISCUSS_UUID_LENGTH = 12
-POSTS_UUID_LENGTH = 12
-
 AUTH_USER_MODEL = 'users.User'
 
-# mail : sendcloud
-EMAIL_BACKEND = 'sendcloud.SendCloudBackend'
-DEFAULT_FROM_EMAIL = 'admin@joway.wang'
-MAIL_DEBUG = False
-MAIL_APP_USER = os.environ.get('MAIL_APP_USER')
-MAIL_APP_KEY = os.environ.get('MAIL_APP_KEY')
+DOMAIN_URL = 'http://py.i2p.pub'
 
-# re url
-LOGIN_URL = '/auth/login/'
-DOMAIN_URL = 'http://api.i2p.pub:8000'
-
-CODING_SOCIAL_CALLBACK_REDIRECT_URL = DOMAIN_URL + '/social/coding'
-QQ_SOCIAL_CALLBACK_REDIRECT_URL = DOMAIN_URL + '/social/qq'
-GITHUB_SOCIAL_CALLBACK_REDIRECT_URL = DOMAIN_URL + '/social/github'
-
-QINIU_CALLBACK_URL = DOMAIN_URL + '/upload/callback/'
-
-# oauth
-SOCIAL_AUTH_QQ_KEY = os.environ.get('SOCIAL_AUTH_QQ_KEY')
-SOCIAL_AUTH_QQ_SECRET = os.environ.get('SOCIAL_AUTH_QQ_SECRET')
-
-SOCIAL_AUTH_GITHUB_KEY = os.environ.get('SOCIAL_AUTH_GITHUB_KEY')
-SOCIAL_AUTH_GITHUB_SECRET = os.environ.get('SOCIAL_AUTH_GITHUB_SECRET')
-
-SOCIAL_AUTH_CODING_KEY = os.environ.get('SOCIAL_AUTH_CODING_KEY')
-SOCIAL_AUTH_CODING_SECRET = os.environ.get('SOCIAL_AUTH_CODING_SECRET')
-
-# avatar
-DEFAULT_AVATAR = 'https://dn-joway.qbox.me/1465087838481_user_116px_1196112_easyicon.net.png'
-
-# access
+# qiniu static
 MEDIA_ROOT = '/upload/'
 QINIU_ACCESS_KEY = os.environ.get('QINIU_ACCESS_KEY', 'xxx')
 QINIU_SECRET_KEY = os.environ.get('QINIU_SECRET_KEY', 'xxx')
@@ -209,3 +175,7 @@ QINIU_BUCKET_DOMAIN = 'dn-stk.qbox.me'
 DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuMediaStorage'
 STATICFILES_STORAGE = 'qiniustorage.backends.QiniuStorage'
 QINIU_SECURE_URL = True
+
+# Base Auth
+AUTH_BASE_URL = 'http://login.i2p.pub/'
+# AUTH_BASE_URL = 'http://127.0.0.1:8000'

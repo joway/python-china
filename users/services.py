@@ -1,79 +1,62 @@
-from django.utils import timezone
+import requests
+from django.utils.http import urlencode
 
-from config.settings import DOMAIN_URL
-from sendcloud.constants import SendCloudTemplates
-from sendcloud.exceptions import SendcloudError
-from sendcloud.utils import sendcloud_template
-from utils.jwt import get_jwt_token
-from utils.utils import get_random_string
-from .constants import MAX_MAIL_INTERVAL_SECONDS, ALINK_VERIFY_CODE_LENGTH, MAX_MAIL_VALID_SECONDS
-from .exceptions import UserNotExist, PasswordError, EmailExist, VerifyTimeFrequently, VerifyCodeError, \
-    UserHasActivated, VerifyCodeExpire
-from .models import User
+from config.settings import AUTH_BASE_URL
+from users.exceptions import AuthProcessError
 
 
-class UserService(object):
+class AuthService(object):
+    AUTH_URL = AUTH_BASE_URL + '/oauth/authorize/'
+    USER_URL = AUTH_BASE_URL + '/oauth/user/'
+    ACCESS_TOKEN_URL = AUTH_BASE_URL + '/oauth/access_token/'
+
+    PROVIDER = 'AUTH'
+
+    CLIENT_ID = 'LlLvZNh9FMbc62K4OA1yjq9CWFoEx12OWBwSYKVlK1qOhUegA6VjAqVfVT8HrbxCdvr4FPfiThI013UnXA7LaBY5WnpsnNo0UNh906Kzj85bI7ukH1Ay0u96SgsyRD2C'
+    CLIENT_SECRET = 'kApfnMdip0QkqdKdhE3YJZAq0raxmpJ7nCZd1sYB'
+
+    AUTH_DATA = {
+        'client_id': CLIENT_ID,
+    }
+
+    UNIQUE_FIELD = 'email'
+
+    HEADER = {"Accept": "application/json"}
+
+    USERNAME_FIELD = 'username'
+
     @classmethod
-    def login(cls, email, password):
+    def get_token_data(cls, code):
+        return {
+            'code': code,
+            'client_id': cls.CLIENT_ID,
+            'client_secret': cls.CLIENT_SECRET,
+            'grant_type': "jwt_bearer"
+        }
+
+    @classmethod
+    def get_tokens(cls, code):
         try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            raise UserNotExist
-        if user.check_password(password):
-            return get_jwt_token(user)
-        else:
-            raise PasswordError
+            tokens = requests.post(url=cls.ACCESS_TOKEN_URL, data=cls.get_token_data(code=code),
+                                   headers=cls.HEADER).json()
+        except:
+            raise AuthProcessError
+        access_token = tokens.get('access_token', None)
+        refresh_token = tokens.get('refresh_token', None)
+        return access_token, refresh_token
 
     @classmethod
-    def register(cls, email, password):
-        user, is_create = User.objects.get_or_create(email=email)
-        if not is_create:
-            raise EmailExist
-
-        if user.last_alink_verify_time and (
-                    timezone.now() - user.last_alink_verify_time).seconds < MAX_MAIL_INTERVAL_SECONDS:
-            raise VerifyTimeFrequently
-
-        user.set_password(password)
-        user.alink_verify_code = get_random_string(ALINK_VERIFY_CODE_LENGTH)
-        user.last_alink_verify_time = timezone.now()
-        if sendcloud_template(to=[email],
-                              tpt_ivk_name=SendCloudTemplates.REGISTER,
-                              sub_vars={'%username%': [email],
-                                        '%url%': [DOMAIN_URL + '/user/activate?confirm=' + user.alink_verify_code]}):
-            user.save()
-            return user
-        else:
-            raise SendcloudError
-
-    @classmethod
-    def activate(cls, alink_verify_code):
+    def get_user_info(cls, access_token):
+        _data = {'access_token': access_token}
         try:
-            user = User.objects.get(alink_verify_code=alink_verify_code)
-        except User.DoesNotExist:
-            raise VerifyCodeError
-        if not user.is_active:
-            raise UserHasActivated
-        if (timezone.now() - user.last_alink_verify_time).seconds < MAX_MAIL_VALID_SECONDS:
-            user.alink_verify_code = None
-            user.is_active = True
-            user.save()
-            return user
-        else:
-            raise VerifyCodeExpire
+            info = requests.get(url=cls.USER_URL,
+                                params=_data,
+                                headers=cls.HEADER
+                                ).json()
+            return info
+        except:
+            raise AuthProcessError
 
     @classmethod
-    def disactivate(cls, email):
-        try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            raise UserNotExist
-        if not user.is_active:
-            return False
-        user.is_active = False
-        user.save()
-        return True
-
-    @classmethod
-    def logout(cls):
-        pass
+    def get_auth_url(cls):
+        return cls.AUTH_URL + '?' + urlencode(cls.AUTH_DATA)

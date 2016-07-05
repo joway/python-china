@@ -36,5 +36,3 @@ class BaseTestCase(TestCase):
     def post(self, url, data=None):
         request = self.factory.post(url, data=data)
         return request
-
-

@@ -1,8 +1,6 @@
 from django.contrib.auth.models import PermissionsMixin, AbstractBaseUser, BaseUserManager
 from django.db import models
 
-from .constants import ALINK_VERIFY_CODE_LENGTH
-
 
 class UserManager(BaseUserManager):
     def _create_user(self, username, email, password, is_superuser=False, **extra_fields):
@@ -20,15 +18,15 @@ class UserManager(BaseUserManager):
 
     def create_activate_user(self, username, email, password, **extra_fields):
         return self._create_user(username=username, email=email,
-                                 password=password, is_active=True, **extra_fields)
+                                 password=password, **extra_fields)
 
     def create_superuser(self, username, email, password, **extra_fields):
         return self._create_user(username=username, email=email, password=password
-                                 , is_superuser=True, is_staff=True, is_active=True ** extra_fields)
+                                 , is_superuser=True, is_staff=True, **extra_fields)
 
     def create_staff(self, username, email, password, **extra_fields):
         return self._create_user(username=username, email=email, password=password
-                                 , is_superuser=False, is_staff=True, is_active=True ** extra_fields)
+                                 , is_superuser=False, is_staff=True, **extra_fields)
 
 
 # Create your models here.
@@ -37,7 +35,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField('注册邮箱', unique=True, db_index=True)
     username = models.CharField('昵称', max_length=255, null=True, blank=True)
 
-    school = models.CharField('目前的学校', max_length=255, null=True, blank=True)
     sex = models.BooleanField('性别', choices=((False, '男'), (True, '女')), default=False)
     birthday = models.DateField('生日', null=True, blank=True)
 
@@ -45,15 +42,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     is_staff = models.BooleanField('管理员', default=False)
 
-    is_active = models.BooleanField('邮箱激活', default=False)
-
     avatar = models.URLField('头像', max_length=255, null=True, blank=True)
 
-    create_at = models.DateTimeField('帐号创建时间', auto_now_add=True)
-
-    alink_verify_code = models.CharField('激活链接验证码', max_length=ALINK_VERIFY_CODE_LENGTH, blank=True, null=True)
-
-    last_alink_verify_time = models.DateTimeField('上一次激活链接发送请求验证码请求时间', blank=True, null=True)
+    created_at = models.DateTimeField('帐号创建时间', auto_now_add=True)
 
     USERNAME_FIELD = 'email'
 

@@ -1,13 +1,15 @@
-.avatar-48{
+.avatar-48 {
     width: 48px;
     height: 48px;
     border-radius: 120px;
 }
-body{
+
+body {
     min-height: 2000px;
     padding-top: 70px;
     background-color: #E1E1E8;
 }
-article img{
+
+article img {
     max-width: 80%;
 }
